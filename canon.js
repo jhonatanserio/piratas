@@ -1,4 +1,4 @@
-class CANNON{
+class Cannon{
 constructor(x,y,width,height,angle){
     this.x=x;
     this.y=y;
@@ -9,10 +9,19 @@ constructor(x,y,width,height,angle){
     this.canonbase_image=loadImage("./assets/cannonBase.png")
 }
 display(){
-  push()
-  translate(this.x,this.y)
-  rotate(this.angle)
-  imageMode(CENTER)
-  image.this(this.canonbase_image,70,25,200,200)
+  if(keyIsDown(UP_ARROW)&&this.angle>59){
+    this.angle+=-0.015
+  }
+  if(keyIsDown(DOWN_ARROW)&&this.angle<61){
+    this.angle+=0.015
+  }
+  console.log(this.angle)
+  push();
+  translate(this.x,this.y);
+  rotate(this.angle);
+  imageMode(CENTER);
+  image(this.canon_image,0,0,this.width,this.height);
+  pop();
+  image(this.canonbase_image,70,25,200,200);
 }
 }
